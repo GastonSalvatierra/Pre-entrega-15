@@ -39,6 +39,7 @@ export const userLogin = async (req, res) => {
     console.log(`log de email y pass en mi app: ${email,password}`);
     req.logger = devLogger;  
     req.logger.info(email , password);
+    let date = new Date()
 
     if (!user) {
       return res.status(401).send({ status: "error", error: "Incorrect credentials" })
@@ -55,7 +56,7 @@ export const userLogin = async (req, res) => {
         age: user.age,
         role: user.role,
         cart: user._id,
-        last_connection: user.status = true
+        last_connection: date
     }
 
     console.log(`-------${JSON.stringify(req.session)}-------`);

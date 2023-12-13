@@ -1,8 +1,9 @@
 import { Router } from "express";
 const router= Router();
 import { uploader } from "../utils.js";
+import { changeRoleIfFilesExist } from "../controllers/user.controller.js";
 
-router.get("/premium/:uid");
+router.get("/premium/:uid" , changeRoleIfFilesExist);
 
 
 // Usando Multer
